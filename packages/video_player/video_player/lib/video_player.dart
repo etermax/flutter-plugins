@@ -314,6 +314,11 @@ class VideoPlayerController extends ValueNotifier<VideoPlayerValue> {
   @visibleForTesting
   int get textureId => _textureId;
 
+  /// Missing documentation
+  Future<void> preload(List<String> uris) {
+    return _videoPlayerPlatform.preload(uris);
+  }
+
   /// Attempts to open the given [dataSource] and load metadata about the video.
   Future<void> initialize() async {
     final bool allowBackgroundPlayback =

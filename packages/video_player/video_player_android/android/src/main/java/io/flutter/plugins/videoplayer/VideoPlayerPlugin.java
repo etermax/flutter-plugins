@@ -7,6 +7,11 @@ package io.flutter.plugins.videoplayer;
 import android.content.Context;
 import android.os.Build;
 import android.util.LongSparseArray;
+
+import androidx.annotation.NonNull;
+
+import com.google.android.exoplayer2.upstream.DefaultHttpDataSource;
+
 import io.flutter.FlutterInjector;
 import io.flutter.Log;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
@@ -113,6 +118,14 @@ public class VideoPlayerPlugin implements FlutterPlugin, AndroidVideoPlayerApi {
 
   public void initialize() {
     disposeAllPlayers();
+  }
+
+  @Override
+  public void preload(@NonNull Messages.PreloadMessage arg) {
+    VideoPlayerCacheFactory.getCacheDataSourceFactory(flutterState.applicationContext, new DefaultHttpDataSource.Factory()
+                    .setUserAgent("ExoPlayer")
+                    .setAllowCrossProtocolRedirects(true));
+    VideoPlayerCacheFactory.preload(arg.getUris());
   }
 
   public TextureMessage create(CreateMessage arg) {

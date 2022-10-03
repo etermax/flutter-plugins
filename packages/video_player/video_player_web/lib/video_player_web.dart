@@ -47,6 +47,10 @@ class VideoPlayerPlugin extends VideoPlayerPlatform {
   }
 
   @override
+  Future<void> preload(List<String> uris) async {
+  }
+
+  @override
   Future<int> create(DataSource dataSource) async {
     final int textureId = _textureCounter++;
 

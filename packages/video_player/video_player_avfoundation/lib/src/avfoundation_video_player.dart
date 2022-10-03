@@ -31,6 +31,9 @@ class AVFoundationVideoPlayer extends VideoPlayerPlatform {
   }
 
   @override
+  Future<void> preload(List<String> uris) async {}
+
+  @override
   Future<int?> create(DataSource dataSource) async {
     String? asset;
     String? packageName;

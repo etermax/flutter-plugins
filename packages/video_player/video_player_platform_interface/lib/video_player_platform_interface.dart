@@ -48,6 +48,11 @@ abstract class VideoPlayerPlatform extends PlatformInterface {
     throw UnimplementedError('dispose() has not been implemented.');
   }
 
+  /// Missing documentation
+  Future<void> preload(List<String> uris) {
+    throw UnimplementedError('preload() has not been implemented');
+  }
+
   /// Creates an instance of a video player and returns its textureId.
   Future<int?> create(DataSource dataSource) {
     throw UnimplementedError('create() has not been implemented.');

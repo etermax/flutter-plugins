@@ -79,6 +79,9 @@ class FakeController extends ValueNotifier<VideoPlayerValue>
   Future<void> setClosedCaptionFile(
     Future<ClosedCaptionFile>? closedCaptionFile,
   ) async {}
+
+  @override
+  Future<void> preload(List<String> uris) async {}
 }
 
 Future<ClosedCaptionFile> _loadClosedCaption() async =>

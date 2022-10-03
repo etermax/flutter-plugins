@@ -31,6 +31,11 @@ class AndroidVideoPlayer extends VideoPlayerPlatform {
   }
 
   @override
+  Future<void> preload(List<String> uris) {
+    return _api.preload(PreloadMessage(uris: uris));
+  }
+
+  @override
   Future<int?> create(DataSource dataSource) async {
     String? asset;
     String? packageName;

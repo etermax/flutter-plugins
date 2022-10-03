@@ -42,6 +42,11 @@ class PositionMessage {
   int position;
 }
 
+class PreloadMessage {
+  PreloadMessage({required this.uris});
+  List<String?>? uris;
+}
+
 class CreateMessage {
   CreateMessage({required this.httpHeaders});
   String? asset;
@@ -59,6 +64,7 @@ class MixWithOthersMessage {
 @HostApi(dartHostTestHandler: 'TestHostVideoPlayerApi')
 abstract class AndroidVideoPlayerApi {
   void initialize();
+  void preload(PreloadMessage msg);
   TextureMessage create(CreateMessage msg);
   void dispose(TextureMessage msg);
   void setLooping(LoopingMessage msg);

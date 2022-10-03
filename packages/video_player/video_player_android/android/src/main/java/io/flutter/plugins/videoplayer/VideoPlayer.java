@@ -86,7 +86,7 @@ final class VideoPlayer {
       if (httpHeaders != null && !httpHeaders.isEmpty()) {
         httpDataSourceFactory.setDefaultRequestProperties(httpHeaders);
       }
-      dataSourceFactory = httpDataSourceFactory;
+      dataSourceFactory = VideoPlayerCacheFactory.getCacheDataSourceFactory(context, httpDataSourceFactory);
     } else {
       dataSourceFactory = new DefaultDataSource.Factory(context);
     }
